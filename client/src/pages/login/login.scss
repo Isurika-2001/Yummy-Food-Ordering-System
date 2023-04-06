@@ -1,0 +1,43 @@
+.AuthMain {
+  h1 {
+    margin-bottom: 0px;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 70vh;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 25%;
+    margin: 0 auto;
+
+    input {
+      padding: 10px;
+      margin: 0px;
+    }
+
+    button {
+      padding: 8px;
+      margin: 0px;
+      background-color: #E86F54;
+      color: white;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .AuthMain {
+    form {
+      width: 65%;
+      input {
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+      }
+    }
+  }
+}

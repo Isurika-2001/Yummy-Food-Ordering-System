@@ -1,0 +1,149 @@
+.main {
+  background-image: linear-gradient(to bottom, rgb(102, 204, 170), rgb(165, 234, 204));
+  color: black;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  margin-top: 0;
+  padding: 2px;
+
+  .left {
+    display: flex;
+    align-items: center;
+    font-size: small;
+    padding: 1%;
+
+    img {
+      margin-top: 15px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .hamburger-menu {
+    display: none;
+    cursor: pointer;
+    div {
+      width: 25px;
+      height: 3px;
+      background-color: black;
+      margin: 5px 0;
+    }
+  }
+
+  .middle {
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    font-weight: 400;
+    gap: 5%;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      color: black;
+      width: 100px;
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    font-size: small;
+    font-weight: 500;
+    gap: 10%;
+    margin-right: 2%;
+
+    img {
+      margin-top: 2px;
+      width: 20px;
+      height: 17px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      width: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main {
+    .header {
+      .left {
+        img {
+          margin-left: 30%;
+          margin-right: -5px;
+        }
+      }
+      .hamburger-menu {
+        display: flex;
+        img {
+          width: 20px;
+          margin-left: 10px;
+          height: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin: -8px;
+        padding: 10px;
+        width: 50%;
+        height: 100vh;
+        font-size: 16px;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        position: fixed;
+        top: 10%;
+        a {
+          text-decoration: none;
+          color: black;
+          margin-bottom: 10px;
+          margin-left: 15px;
+          line-height: 40px;
+        }
+      }
+      .middle {
+        display: none;
+      }
+      .right {
+        a {
+          width: 60px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 2px;
+          padding: 2px;
+          font-weight: bold;
+          border-radius: 10px;
+          text-align: center;
+          text-decoration: none;
+          background-image: linear-gradient(to bottom, #E86F54, #ffc2b5);
+          background-color: #E86F54;
+        }
+      }
+    }
+  }
+}
+
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.dark-mode input {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #fff;
+}
+
