@@ -1,11 +1,11 @@
 const BeverageList = [
     {
       id: 1,
-      name: "Chicken Burger",
+      name: "Iced Coffee",
       image:
-        "https://th.bing.com/th/id/R.c4c49f01bc513ad99599defb9d25e1cc?rik=dyX6XuK5QgSNSw&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/OIP.qTigvoDoGveUmmA-AJHzbQHaHj?pid=ImgDet&rs=1",
       description:
-        "Topped with avocado, onion, alfafa sprouts, tomatoes and sun-dried tomato pesto, these tasty burgers are perfect for any health conscious people.",
+        "Nescafe Instant Coffee. Enjoy coffee on the go",
       price: "LKR 560.00",
     },
     {

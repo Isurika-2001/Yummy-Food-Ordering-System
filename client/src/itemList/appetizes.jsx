@@ -1,19 +1,19 @@
 const AppetizerList = [
     {
       id: 1,
-      name: "Chicken Burger",
+      name: "Chicken Nuggets",
       image:
-        "https://th.bing.com/th/id/R.c4c49f01bc513ad99599defb9d25e1cc?rik=dyX6XuK5QgSNSw&pid=ImgRaw&r=0",
+        "https://kidgredients.com.au/wp-content/uploads/2016/02/fuss-free-nuggets-update-1-500x500.jpg",
       description:
-        "Topped with avocado, onion, alfafa sprouts, tomatoes and sun-dried tomato pesto, these tasty burgers are perfect for any health conscious people.",
+        "Deep fired crispy fingers made from chicken meat that is battered.",
       price: "LKR 560.00",
     },
     {
       id: 2,
-      name: "Crispy Chicken Burger",
+      name: "Potato Wedges",
       image:
-        "https://www.kitchensanctuary.com/wp-content/uploads/2017/08/Crispy-Chicken-Burger-with-Honey-Mustard-Coleslaw-recipe-square-FS.jpg",
-      description: "Crispy Chicken Burger with Honey Mustard Coleslaw",
+        "https://th.bing.com/th/id/R.3bb42cd28709c772ee983669b3b4203e?rik=WJkr3gjsW1UL8A&pid=ImgRaw&r=0",
+      description: "With just the right touch of garlic and Parmesan cheese",
       price: "LKR 680.00",
     },
   ];
