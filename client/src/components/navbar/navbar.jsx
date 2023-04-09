@@ -1,18 +1,35 @@
-import Logo from "../../assets/logo.png";
 import Menu from "../../assets/menu.png";
 import Dark from "../../assets/night-mode.png";
 import Light from "../../assets/moon.png";
-import { useState } from "react";
-import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "./navbar.scss";
 
 export const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [mode, setMode] = useState("light");
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    const card = document.querySelector(".card");
+    if (mode === "dark") {
+      body.classList.add("dark-mode");
+    } else {
+      body.classList.remove("dark-mode");
+    }
+    if (card) {
+      if (mode === "dark") {
+        card.classList.add("card-dark-mode");
+      } else {
+        card.classList.remove("card-dark-mode");
+      }
+    }
+  }, [mode]);
 
   const handleMode = () => {
     const newMode = mode === "light" ? "dark" : "light";
@@ -22,13 +39,20 @@ export const NavBar = () => {
 
   useEffect(() => {
     const body = document.querySelector("body");
+    const card = document.querySelector(".card");
     if (mode === "dark") {
       body.classList.add("dark-mode");
     } else {
       body.classList.remove("dark-mode");
     }
+    if (card) {
+      if (mode === "dark") {
+        card.classList.add("card-dark-mode");
+      } else {
+        card.classList.remove("card-dark-mode");
+      }
+    }
   }, [mode]);
-
 
   return (
     <div className="main">
@@ -37,14 +61,21 @@ export const NavBar = () => {
           <div className="hamburger-menu" onClick={toggleMenu}>
             <img src={Menu} alt="menu"></img>
           </div>
-          <img src={Logo} alt="logo"></img>
           <h2>Yummy</h2>
         </div>
         <div className="middle">
-          <a href="/">Home</a>
-          <a href="menu">Menu</a>
-          <a href="myorders">My Orders</a>
-          <a href="contactus">Contact Us</a>
+          <NavLink activeClassName="active" to="/">
+            <span>Home</span>
+          </NavLink>
+          <NavLink activeClassName="active" to="/menu">
+            <span>Menu</span>
+          </NavLink>
+          <NavLink activeClassName="active" to="/myorders">
+            <span>My Orders</span>
+          </NavLink>
+          <NavLink activeClassName="active" to="/contactus">
+            <span>Contact Us</span>
+          </NavLink>
         </div>
         <div className="right">
           <img
@@ -53,14 +84,30 @@ export const NavBar = () => {
             alt={mode === "light" ? "light-mode" : "dark-mode"}
             onClick={handleMode}
           ></img>
-          <a href="/login">Sign In</a>
+          {user ? (
+            <a href="/profile" className="userInfo">
+              Welcome, {user.name}
+            </a>
+          ) : (
+            <a className="userInfo" href="/login">
+              Sign In / Register
+            </a>
+          )}
         </div>
         {showMenu && (
           <div className="mobile-menu">
-            <a href="/">Home</a>
-            <a href="menu">Menu</a>
-            <a href="myorders">My Orders</a>
-            <a href="contactus">Contact Us</a>
+            <NavLink activeClassName="active" to="/">
+              <span>Home</span>
+            </NavLink>
+            <NavLink activeClassName="active" to="/menu">
+              <span>Menu</span>
+            </NavLink>
+            <NavLink activeClassName="active" to="/myorders">
+              <span>My Orders</span>
+            </NavLink>
+            <NavLink activeClassName="active" to="/contactus">
+              <span>Contact Us</span>
+            </NavLink>
           </div>
         )}
       </div>

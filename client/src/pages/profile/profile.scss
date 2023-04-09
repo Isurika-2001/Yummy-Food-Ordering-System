@@ -1,0 +1,19 @@
+.profileMain {
+  margin-left: 10px;
+  margin-right: 10px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    padding: 2px;
+  }
+  form {
+    .image {
+      img {
+        width: 100px;
+        height: auto;
+      }
+    }
+  }
+}

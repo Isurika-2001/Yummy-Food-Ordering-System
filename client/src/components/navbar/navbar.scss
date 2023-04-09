@@ -1,13 +1,15 @@
 .main {
-  background-image: linear-gradient(to bottom, rgb(102, 204, 170), rgb(165, 234, 204));
-  color: black;
+  background-color: #b31c69;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 5px;
   margin-top: 0;
   padding: 2px;
 
@@ -16,11 +18,14 @@
     align-items: center;
     font-size: small;
     padding: 1%;
+    font-family: "Caveat";
+    font-size: large;
 
     img {
-      margin-top: 15px;
-      width: 50px;
-      height: 50px;
+      display: block;
+      margin: 15px;
+      width: 30px;
+      height: 30px;
     }
   }
 
@@ -30,7 +35,7 @@
     div {
       width: 25px;
       height: 3px;
-      background-color: black;
+      background-color: rgb(255, 255, 255);
       margin: 5px 0;
     }
   }
@@ -44,8 +49,21 @@
     justify-content: center;
     a {
       text-decoration: none;
-      color: black;
+      color: rgb(255, 255, 255);
       width: 100px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: #f49d1a;
+        font-size: small;
+      }
+
+      &.active {
+        text-decoration: underline;
+        font-weight: bold;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 8px;
+      }
     }
   }
 
@@ -65,8 +83,22 @@
 
     a {
       text-decoration: none;
-      color: black;
-      width: 70px;
+      width: 150px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2px;
+      padding: 2px;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #f49d1a;
+      color: rgb(0, 0, 0);
+      &:hover {
+        font-size: smaller;
+        background-color: rgb(241, 166, 54);
+      }
     }
   }
 }
@@ -75,9 +107,8 @@
   .main {
     .header {
       .left {
-        img {
-          margin-left: 30%;
-          margin-right: -5px;
+        .logo {
+          display: none;
         }
       }
       .hamburger-menu {
@@ -93,7 +124,7 @@
       .mobile-menu {
         display: flex;
         flex-direction: column;
-        background-color: white;
+        background-color: rgb(255, 255, 255);
         margin: -8px;
         padding: 10px;
         width: 50%;
@@ -102,13 +133,24 @@
         font-weight: 600;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         position: fixed;
-        top: 10%;
+        top: 100px;
+
         a {
           text-decoration: none;
           color: black;
           margin-bottom: 10px;
           margin-left: 15px;
           line-height: 40px;
+
+          &.active {
+            background-color: #f49d1a;
+            font-weight: bold;
+            padding-left: 12px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 8px;
+          }
         }
       }
       .middle {
@@ -116,26 +158,26 @@
       }
       .right {
         a {
-          width: 60px;
+          font-size: smaller;
+          width: 105px;
           height: 30px;
           display: flex;
           align-items: center;
           justify-content: center;
           margin: 2px;
+          margin-right: 0px;
+          padding-right: 0px;
           padding: 2px;
-          font-weight: bold;
           border-radius: 10px;
           text-align: center;
           text-decoration: none;
-          background-image: linear-gradient(to bottom, #E86F54, #ffc2b5);
-          background-color: #E86F54;
         }
       }
     }
   }
 }
 
-
+// dark mode stylings
 .dark-mode {
   background-color: black;
   color: white;
@@ -146,4 +188,3 @@
   color: #ffffff;
   border-color: #fff;
 }
-

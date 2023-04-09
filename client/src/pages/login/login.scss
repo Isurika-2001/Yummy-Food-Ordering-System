@@ -1,13 +1,22 @@
 .AuthMain {
-  h1 {
-    margin-bottom: 0px;
-  }
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
   height: 70vh;
+  .header {
+    display: flex;
+    flex-direction: column;
+    h1 {
+      margin-bottom: 10px;
+    }
+  }
+  .err {
+    font-weight: 400;
+    font-style: italic;
+    font-size: small;
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -18,13 +27,27 @@
     input {
       padding: 10px;
       margin: 0px;
+      border-radius: 10px;
     }
 
     button {
-      padding: 8px;
+      padding: 10px;
       margin: 0px;
-      background-color: #E86F54;
-      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      color: rgb(0, 0, 0);
+      background-color: #f49d1a;
+      //background-image: linear-gradient(to bottom, #f17f65, #d55d43);
+      &:hover {
+        font-size: smaller;
+        background-color: rgb(241, 166, 54);
+      }
+    }
+  }
+  .moreInfo {
+    a {
+      color: blue;
     }
   }
 }
@@ -37,6 +60,10 @@
         border-top: 0px;
         border-left: 0px;
         border-right: 0px;
+        border-radius: 0px;
+      }
+      button {
+        border-radius: 25px;
       }
     }
   }

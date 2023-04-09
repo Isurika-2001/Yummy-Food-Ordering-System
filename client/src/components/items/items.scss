@@ -1,0 +1,114 @@
+.itemsMain {
+  padding: 20px;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+
+  h2{
+    width: 100%;
+    margin: 0px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 5px 10px #b31c69;
+    width: 20%;
+    width: 20%;transition: transform 0.3s ease;
+
+    .header {
+      height: fit-content;
+
+      img {
+        width: 100%;
+        height: fit-content;
+      }
+    }
+
+    .itemBody {
+      display: flex;
+      flex-direction: column;
+      padding-left: 10px;
+      min-width: 50%;
+
+      .title {
+        align-self: flex-start;
+        font-size: large;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: smaller;
+        font-weight: 500;
+        text-align: left;
+      }
+
+      .footer {
+        display: flex;
+
+        span {
+        }
+
+        button {
+          margin-left: auto;
+          padding: 8px;
+          border: none;
+          border-radius: 10px;
+          font-weight: bold;
+          color: rgb(255, 255, 255);
+          background-color: #b31c69;
+          //background-image: linear-gradient(to bottom, #f17f65, #d55d43);
+
+          &:hover {
+            font-size: smaller;
+            background-color: rgb(241, 166, 54);
+          }
+        }
+      }
+
+      .tc {
+        align-self: flex-end;
+        font-size: x-small;
+        font-weight: bold;
+      }
+    }
+    &:hover {
+      transform: scale(.98);
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .itemsMain {
+    flex-direction: column;
+    .card {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      .header {
+        img {
+          width: 100%;
+        }
+      }
+      .itemBody {
+        width: 100%;
+        h3 {
+        }
+        p {
+        }
+        .footer {
+          display: flex;
+          span {
+          }
+          button {
+          }
+        }
+      }
+    }
+  }
+}
