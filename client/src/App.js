@@ -7,6 +7,7 @@ import { Contactus } from "./pages/contactus/contactus";
 import { NavBar } from "./components/navbar/navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Profile } from "./pages/profile/profile"
+import { Cart } from "./pages/cart/cart";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </div>
       </Router>

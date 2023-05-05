@@ -4,7 +4,7 @@
   gap: 50px;
   flex-wrap: wrap;
 
-  h2{
+  h2 {
     width: 100%;
     margin: 0px;
   }
@@ -19,7 +19,8 @@
     border-bottom-right-radius: 20px;
     box-shadow: 0 5px 10px #b31c69;
     width: 20%;
-    width: 20%;transition: transform 0.3s ease;
+    width: 20%;
+    transition: transform 0.3s ease;
 
     .header {
       height: fit-content;
@@ -34,7 +35,7 @@
       display: flex;
       flex-direction: column;
       padding-left: 10px;
-      min-width: 50%;
+      width: 100%;
 
       .title {
         align-self: flex-start;
@@ -48,14 +49,36 @@
         text-align: left;
       }
 
-      .footer {
+      .price {
         display: flex;
+        width: 100%;
+
+        .lable {
+          width: 31px;
+        }
+      }
+      .footer {
+        width: 100%;
+        display: flex;
+        align-items: center;
 
         span {
+          margin-right: 10px;
+          padding: 5px;
+        }
+
+        .calc {
+          color: rgb(0, 0, 0);
+          background-color: #f49d1a;
+          margin-right: 10px;
+          width: 30px;
+        }
+
+        .cart {
+          margin-left: auto;
         }
 
         button {
-          margin-left: auto;
           padding: 8px;
           border: none;
           border-radius: 10px;
@@ -70,15 +93,9 @@
           }
         }
       }
-
-      .tc {
-        align-self: flex-end;
-        font-size: x-small;
-        font-weight: bold;
-      }
     }
     &:hover {
-      transform: scale(.98);
+      transform: scale(0.98);
     }
   }
 }

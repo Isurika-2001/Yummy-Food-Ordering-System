@@ -1,0 +1,129 @@
+.full {
+  margin: 10px;
+  padding: 10px;
+
+  .cartMain {
+    display: flex;
+    .cartDetails {
+      .header {
+        .remove {
+          background-color: red;
+          color: white;
+          border-radius: 10px;
+          padding: 10px;
+          margin-top: 10px;
+          border: none;
+        }
+      }
+      width: 50%;
+      float: left;
+      margin-right: 10%;
+      table {
+        width: 100%;
+        thead {
+          tr {
+            th {
+              text-align: right;
+            }
+            .name {
+              text-align: left;
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              text-align: right;
+            }
+            .name {
+              text-align: left;
+            }
+          }
+        }
+      }
+      hr {
+        border: none;
+        border-top: 2px solid;
+      }
+    }
+    .userDetails {
+      width: 40%;
+      margin-top: 25px;
+      form {
+        div {
+          input {
+            margin-top: 5px;
+            margin-bottom: 20px;
+            padding: 5px;
+            width: 95.5%;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+          }
+        }
+      }
+      .locateMe {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        color: rgb(0, 0, 0);
+        border-radius: 10px;
+        background-color: rgb(239, 239, 239);
+        width: 97.5%;
+
+        &:hover {
+          font-size: smaller;
+          background-color: rgb(255, 255, 255);
+        }
+
+        img {
+          width: 25px;
+          margin-right: 10px;
+        }
+      }
+
+      .order {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 38.5%;
+        padding: 10px;
+        margin: 10px;
+        margin-right: 30px;
+        border: none;
+        border-radius: 10px;
+        color: rgb(0, 0, 0);
+        background-color: #f49d1a;
+        &:hover {
+          font-size: smaller;
+          background-color: rgb(241, 166, 54);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .full {
+    text-align: center;
+    .cartMain {
+      flex-direction: column;
+      .cartDetails {
+        width: 100%;
+      }
+      .userDetails {
+        margin-top: 30%;
+        width: 100%;
+        .locateMe {
+          width: 99%;
+        }
+        .order {
+          width: 90%;
+          margin: 10px;
+          margin-right: 18px;
+        }
+      }
+    }
+  }
+}

@@ -1,17 +1,23 @@
 .subNav {
-  margin-top: 10px;
   display: flex;
   align-items: center;
   font-size: medium;
   font-weight: 400;
   gap: 5%;
   justify-content: center;
-  position: sticky;
-  top: 90px;
-  z-index: 1000;
-  background-color: white;
   height: 50px;
+  top: 50px;
+  z-index: 1000;
+  padding: 10px;
   padding-bottom: 7px;
+  position: sticky;
+  top: 90px; 
+  z-index: 1000;
+  background-color: #ffffff;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  
+
   a {
     cursor: pointer;
     text-decoration: none;
@@ -29,6 +35,16 @@
       font-weight: bold;
       text-decoration-thickness: 2px;
       text-underline-offset: 8px;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .subNav {
+    a {
+      &:hover {
+        color: #000000;
+        font-size: medium;
+      }
     }
   }
 }

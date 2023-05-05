@@ -1,5 +1,6 @@
 import Menu from "../../assets/menu.png";
 import Dark from "../../assets/night-mode.png";
+import CartIcon from "../../assets/grocery-store.png";
 import Light from "../../assets/moon.png";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -9,6 +10,8 @@ export const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [mode, setMode] = useState("light");
   const user = JSON.parse(localStorage.getItem("user"));
+  const storedItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
+  const itemCount = storedItems.length;
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -78,6 +81,12 @@ export const NavBar = () => {
           </NavLink>
         </div>
         <div className="right">
+          <div className="cart-flex">
+            <span>{itemCount}</span>
+            <a className="cart-holder" href="/cart">
+              <img className="cart-icon" src={CartIcon} alt="cart-image1" />
+            </a>
+          </div>
           <img
             className="mode"
             src={mode === "light" ? Light : Dark}
@@ -86,26 +95,42 @@ export const NavBar = () => {
           ></img>
           {user ? (
             <a href="/profile" className="userInfo">
-              Welcome, {user.name}
+              {user.name}
             </a>
           ) : (
             <a className="userInfo" href="/login">
-              Sign In / Register
+              Sign In / Sign Up
             </a>
           )}
         </div>
         {showMenu && (
-          <div className="mobile-menu">
-            <NavLink activeClassName="active" to="/">
+          <div className={`mobile-menu ${showMenu ? "active" : ""}`}>
+            <NavLink
+              activeClassName="active"
+              to="/"
+              onClick={() => setShowMenu(false)}
+            >
               <span>Home</span>
             </NavLink>
-            <NavLink activeClassName="active" to="/menu">
+            <NavLink
+              activeClassName="active"
+              to="/menu"
+              onClick={() => setShowMenu(false)}
+            >
               <span>Menu</span>
             </NavLink>
-            <NavLink activeClassName="active" to="/myorders">
+            <NavLink
+              activeClassName="active"
+              to="/myorders"
+              onClick={() => setShowMenu(false)}
+            >
               <span>My Orders</span>
             </NavLink>
-            <NavLink activeClassName="active" to="/contactus">
+            <NavLink
+              activeClassName="active"
+              to="/contactus"
+              onClick={() => setShowMenu(false)}
+            >
               <span>Contact Us</span>
             </NavLink>
           </div>
