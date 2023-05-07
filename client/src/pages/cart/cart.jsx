@@ -60,11 +60,19 @@ export const Cart = () => {
           <form>
             <div>
               <span>Contact number</span>
-              <input type="text" name="contact" placeholder="enter your contact number here"></input>
+              <input
+                type="text"
+                name="contact"
+                placeholder="enter your contact number here"
+              ></input>
             </div>
             <div>
               <span>Address</span>
-              <input type="text" name="address" placeholder="enter your address or share your current location"></input>
+              <input
+                type="text"
+                name="address"
+                placeholder="enter your address or share your current location"
+              ></input>
             </div>
           </form>
           <button className="locateMe">
