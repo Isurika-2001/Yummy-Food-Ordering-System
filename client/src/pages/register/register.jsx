@@ -29,8 +29,13 @@ export const Register = () => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:8000/register", inputs);
-      const response = await axios.post("http://localhost:8000/login", inputs);
-      const user = response.data.user;
+      const user = {
+        name: inputs.name,
+        email: inputs.email,
+        profile_image: "https://i.stack.imgur.com/l60Hf.png",
+        address: null,
+        contact_no: null,
+      };
       localStorage.setItem("user", JSON.stringify(user));
       window.location.href = "/";
     } catch (err) {
@@ -38,6 +43,7 @@ export const Register = () => {
       setErr(err.response.data.error);
     }
   };
+  
 
   return (
     <div className="AuthMain">

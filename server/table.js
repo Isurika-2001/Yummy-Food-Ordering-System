@@ -7,7 +7,7 @@ const db = new sqlite.Database('./user.db', sqlite.OPEN_READWRITE, (err) => {
     } 
 });
 
-const sql = `CREATE TABLE IF NOT EXISTS user(ID INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT NOT NULL, email TEXT NOT NULL UNIQUE,password TEXT NOT NULL)`;
+const sql = `CREATE TABLE IF NOT EXISTS user(ID INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT NOT NULL, email TEXT NOT NULL UNIQUE,password TEXT NOT NULL,contact_no TEXT, address text, profile_image BLOB DEFAULT 'https://i.stack.imgur.com/l60Hf.png')`;
 db.run(sql, (err) => {
     if (err) {
         console.error(err.message);

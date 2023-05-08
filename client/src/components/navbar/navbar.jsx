@@ -95,11 +95,11 @@ export const NavBar = () => {
           ></img>
           {user ? (
             <a href="/profile" className="userInfo">
-              {user.name}
+              Profile
             </a>
           ) : (
             <a className="userInfo" href="/login">
-              Sign In / Sign Up
+              Sign In
             </a>
           )}
         </div>

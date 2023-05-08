@@ -187,7 +187,7 @@
       }
       .right {
         .userInfo {
-          font-size: smaller;
+          font-size: small;
           width: 105px;
           height: 30px;
           display: flex;
@@ -200,6 +200,9 @@
           border-radius: 10px;
           text-align: center;
           text-decoration: none;
+          &:hover {
+            font-size: small;
+          }
         }
       }
     }

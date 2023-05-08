@@ -29,7 +29,6 @@ export const Login = () => {
     try {
       const response = await axios.post("http://localhost:8000/login", inputs);
       const user = response.data.user;
-      // Store user details in localStorage
       localStorage.setItem("user", JSON.stringify(user));
       window.location.href = "/";
     } catch (err) {
