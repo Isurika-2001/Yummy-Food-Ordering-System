@@ -5,7 +5,6 @@
   "scripts": {
     "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
     "start:client": "cd client && npm start",
-    "build": "react-scripts build",
     "start:server": "cd server && node app.js"
   }
 }
