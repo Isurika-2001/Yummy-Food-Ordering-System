@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(buildPath));
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 
 app.post("/register", (req, res) => {
   try {
