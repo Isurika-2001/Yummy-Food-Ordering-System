@@ -1,7 +1,12 @@
 const express = require("express");
+const path = require('path');
 const bodyParser = require("body-parser");
 const cors = require("cors");
+
+
 const app = express();
+
+const buildPath = path.join(__dirname, '../client/build');
 
 const sqlite = require("sqlite3").verbose();
 const db = new sqlite.Database("./user.db", sqlite.OPEN_READWRITE, (err) => {
@@ -13,6 +18,8 @@ const db = new sqlite.Database("./user.db", sqlite.OPEN_READWRITE, (err) => {
 });
 
 app.use(bodyParser.json());
+
+app.use(express.static(buildPath));
 
 app.use(cors({ origin: "http://localhost:3000" }));
 
