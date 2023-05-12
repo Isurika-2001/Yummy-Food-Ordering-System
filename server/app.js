@@ -1,12 +1,7 @@
 const express = require("express");
-const path = require('path');
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
-
 const app = express();
-
-const buildPath = path.join(__dirname, '../client/build');
 
 const sqlite = require("sqlite3").verbose();
 const db = new sqlite.Database("./user.db", sqlite.OPEN_READWRITE, (err) => {
@@ -17,21 +12,11 @@ const db = new sqlite.Database("./user.db", sqlite.OPEN_READWRITE, (err) => {
   }
 });
 
-const sql = `CREATE TABLE IF NOT EXISTS user(ID INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT NOT NULL, email TEXT NOT NULL UNIQUE,password TEXT NOT NULL,contact_no TEXT, address text, profile_image BLOB DEFAULT 'https://i.stack.imgur.com/l60Hf.png')`;
-db.run(sql, (err) => {
-    if (err) {
-        console.error(err.message);
-    } else {
-        console.log('Table created.');
-    }
-});
-
 app.use(bodyParser.json());
 
-app.use(express.static(buildPath));
-
-app.use(cors());
-
+app.use(
+  cors({ origin: ["http://localhost:3000", "http://192.168.229.66:3000"] })
+);
 
 app.post("/register", (req, res) => {
   try {
@@ -118,14 +103,14 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/updateProfile", (req, res) => {
-  const sql = `UPDATE user SET name=?, address=?, contact_no=?, profile_image=? WHERE email=?`;
+  const sql = `UPDATE user SET name=?, address=?, contact_no=? WHERE email=?`;
   db.run(
     sql,
     [
       req.body.name,
       req.body.address,
       req.body.contact_no,
-      req.body.profile_image,
+      // req.body.profile_image,
       req.body.email,
     ],
     (err, row) => {
@@ -133,7 +118,7 @@ app.post("/updateProfile", (req, res) => {
         console.error(err.message);
         return res.status(500).json({ error: err.message });
       }
-      console.log(req.body.profile_image);
+      // console.log(req.body.profile_image);
       return res.status(200).json({ message: "User updated." });
     }
   );

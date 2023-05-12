@@ -15,7 +15,7 @@ export const Cart = () => {
   };
 
   return (
-    <div className="full">
+    <div className="Main">
       <div className="cartMain">
         <div className="cartDetails">
           <div className="header">

@@ -1,5 +1,5 @@
 .main {
-  background-color: #b31c69;
+  background-color: #116530;
   color: white;
   position: sticky;
   top: 0;
@@ -84,7 +84,7 @@
         align-self: flex-end;
         margin-right: -10px;
         margin-bottom: -5px;
-        background-color: red;
+        background-color: #F8333C;
         border-radius: 6px;
         width: 20px;
         padding-bottom: 2px;
@@ -115,11 +115,11 @@
       border-radius: 10px;
       text-align: center;
       text-decoration: none;
-      background-color: #f49d1a;
+      background-color: #FCAB10;
       color: rgb(0, 0, 0);
       &:hover {
         font-size: smaller;
-        background-color: rgb(241, 166, 54);
+        background-color: #ffa600;
       }
     }
   }
@@ -150,13 +150,12 @@
       .mobile-menu {
         display: flex;
         flex-direction: column;
-        background-color: #ffe9f4;
+        background-color: hsl(137, 100%, 99%);
         margin: 0;
         padding: 10px;
         width: 50%;
         height: 100vh;
         font-size: 16px;
-        font-weight: 600;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         position: fixed;
         top: 90px;
@@ -165,14 +164,13 @@
 
         a {
           text-decoration: none;
-          color: black;
+          color: rgb(53, 53, 53);
           margin-bottom: 10px;
           margin-left: 15px;
           line-height: 40px;
 
           &.active {
-            background-color: #f49d1a;
-            font-weight: bold;
+            background-color: #FCAB10;
             padding-left: 12px;
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;

@@ -1,21 +1,21 @@
 import "./profile.scss";
-import WebCam from "react-webcam";
+// import WebCam from "react-webcam";
 import { useRef, useState } from "react";
 import axios from "axios";
 
 export const Profile = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [showCamera, setShowCamera] = useState(false);
-  const [imgSrc, setImgSrc] = useState(null);
-  const inputRef = useRef(null);
-  const [imageData, setImageData] = useState(null);
+  // const [imgSrc, setImgSrc] = useState(null);
+  // const inputRef = useRef(null);
+  // const [imageData, setImageData] = useState(null);
 
   const [inputs, setInputs] = useState({
     name: user.name,
     email: user.email,
     address: user.address,
     contact_no: user.contact_no,
-    profile_image: user.profile_image || imageData,
+    // profile_image: user.profile_image || imageData,
   });
 
   const handleChange = (e) => {
@@ -27,33 +27,37 @@ export const Profile = () => {
     window.location.href = "/";
   };
 
-  const handleCloseCamera = () => {
-    setShowCamera(false);
-  };
+  // const handleCloseCamera = () => {
+  //   setShowCamera(false);
+  // };
 
-  const handleTakePhoto = () => {
-    const imgSrc = inputRef.current.getScreenshot();
-    setImgSrc(imgSrc);
-    setShowCamera(false);
-    const imageData = imgSrc.replace("data:image/jpeg;base64,", "");
-    setImageData(imageData);
-  };
+  // const handleTakePhoto = () => {
+  //   const imgSrc = inputRef.current.getScreenshot();
+  //   setImgSrc(imgSrc);
+  //   setShowCamera(false);
+  //   const imageData = imgSrc.replace("data:image/jpeg;base64,", "");
+  //   setImageData(imageData);
+  // };
 
-  const handleProfilePicClick = () => {
-    setImgSrc(null);
-    setShowCamera(true);
-  };
+  // const handleProfilePicClick = () => {
+  //   setImgSrc(null);
+  //   setShowCamera(true);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const profile_image = imageData || inputs.profile_image;
-      const updatedInputs = { ...inputs, profile_image };
-      await axios.post("http://localhost:8000/updateProfile", updatedInputs);
+      // const profile_image = imageData || inputs.profile_image;
+      // const updatedInputs = { ...inputs, profile_image };
+      const updatedInputs = { ...inputs };
+      await axios.post(
+        "http://192.168.229.66:8000/updateProfile",
+        updatedInputs
+      );
       const user = updatedInputs;
       localStorage.setItem("user", JSON.stringify(user));
       setInputs(updatedInputs);
-      alert("User details updated successfully!")
+      alert("User details updated successfully!");
     } catch (err) {
       console.error(err);
     }
@@ -71,7 +75,12 @@ export const Profile = () => {
           Logout
         </button>
         <div>
-          {imgSrc ? (
+          <img
+            src="https://i.stack.imgur.com/l60Hf.png"
+            alt=""
+            className="profilePic"
+          />
+          {/* {imgSrc ? (
             <img
               onClick={handleProfilePicClick}
               src={imgSrc}
@@ -85,9 +94,9 @@ export const Profile = () => {
               alt=""
               className="profilePic"
             />
-          )}
+          )} */}
         </div>
-        {showCamera && (
+        {/* {showCamera && (
           <div className="cameraContainer">
             <WebCam audio={false} ref={inputRef} />
             <button className="take" onClick={handleTakePhoto}>
@@ -97,7 +106,7 @@ export const Profile = () => {
               Close Camera
             </button>
           </div>
-        )}
+        )} */}
       </div>
 
       <form className="profileForm" onSubmit={handleSubmit}>

@@ -1,6 +1,6 @@
 export const Order = () => {
   return (
-    <div className="orderMain">
+    <div className="Main">
       <h1>Order</h1>
     </div>
   );

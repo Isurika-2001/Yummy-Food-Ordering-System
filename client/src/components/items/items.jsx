@@ -57,7 +57,7 @@ export const Items = () => {
             <p>{item.description}</p>
             <div className="price">
               <span className="lable">LKR </span>
-              <span>{item.price}</span>
+              <span>{item.price}.00</span>
             </div>
             <div className="footer">
               <button

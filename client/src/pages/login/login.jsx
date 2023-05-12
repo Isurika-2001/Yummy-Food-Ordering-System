@@ -27,7 +27,10 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/login", inputs);
+      const response = await axios.post(
+        "http://192.168.229.66:8000/login",
+        inputs
+      );
       const user = response.data.user;
       localStorage.setItem("user", JSON.stringify(user));
       window.location.href = "/";

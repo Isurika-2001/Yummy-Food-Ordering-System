@@ -1,4 +1,4 @@
-.full {
+.Main {
   margin: 10px;
   padding: 10px;
 
@@ -7,7 +7,7 @@
     .cartDetails {
       .header {
         .remove {
-          background-color: red;
+          background-color: #F8333C;
           color: white;
           border-radius: 10px;
           padding: 10px;
@@ -93,8 +93,8 @@
         margin-right: 30px;
         border: none;
         border-radius: 10px;
-        color: rgb(0, 0, 0);
-        background-color: #f49d1a;
+        color: rgb(255, 255, 255);
+        background-color: #116530;
         &:hover {
           font-size: smaller;
           background-color: rgb(241, 166, 54);
@@ -105,7 +105,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .full {
+  .Main {
     text-align: center;
     .cartMain {
       flex-direction: column;

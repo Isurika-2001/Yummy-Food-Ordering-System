@@ -17,7 +17,7 @@
     padding: 1rem;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    box-shadow: 0 5px 10px #b31c69;
+    box-shadow: 0 1px 5px #116530;
     width: 20%;
     width: 20%;
     transition: transform 0.3s ease;
@@ -52,6 +52,7 @@
       .price {
         display: flex;
         width: 100%;
+        margin-bottom: 10px;
 
         .lable {
           width: 31px;
@@ -69,7 +70,7 @@
 
         .calc {
           color: rgb(0, 0, 0);
-          background-color: #f49d1a;
+          background-color: #FCAB10;
           margin-right: 10px;
           width: 30px;
         }
@@ -84,7 +85,7 @@
           border-radius: 10px;
           font-weight: bold;
           color: rgb(255, 255, 255);
-          background-color: #b31c69;
+          background-color: #116530;
           //background-image: linear-gradient(to bottom, #f17f65, #d55d43);
 
           &:hover {
@@ -114,16 +115,8 @@
       }
       .itemBody {
         width: 100%;
-        h3 {
-        }
-        p {
-        }
         .footer {
           display: flex;
-          span {
-          }
-          button {
-          }
         }
       }
     }
