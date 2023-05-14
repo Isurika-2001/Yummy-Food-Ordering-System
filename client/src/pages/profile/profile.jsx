@@ -1,11 +1,12 @@
 import "./profile.scss";
 // import WebCam from "react-webcam";
-import { useRef, useState } from "react";
+import { useState } from "react";
+// import { useRef } from "react";
 import axios from "axios";
 
 export const Profile = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const [showCamera, setShowCamera] = useState(false);
+  // const [showCamera, setShowCamera] = useState(false);
   // const [imgSrc, setImgSrc] = useState(null);
   // const inputRef = useRef(null);
   // const [imageData, setImageData] = useState(null);
