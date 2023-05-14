@@ -28,7 +28,7 @@ export const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://192.168.229.66:8000/login",
+        `${window.location.protocol}//${window.location.hostname}:8000/login`,
         inputs
       );
       const user = response.data.user;
@@ -38,6 +38,7 @@ export const Login = () => {
       setErr(err.response.data.message);
     }
   };
+  
 
   return (
     <div className="AuthMain">

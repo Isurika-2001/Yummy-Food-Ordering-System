@@ -15,7 +15,7 @@ const db = new sqlite.Database("./user.db", sqlite.OPEN_READWRITE, (err) => {
 app.use(bodyParser.json());
 
 app.use(
-  cors({ origin: ["http://localhost:3000", "http://192.168.229.66:3000"] })
+  cors({ origin: ["http://localhost:3000", "http://192.168.43.66:3000"] })
 );
 
 app.post("/register", (req, res) => {

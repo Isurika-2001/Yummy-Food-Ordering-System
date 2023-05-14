@@ -36,12 +36,12 @@
       border: none;
       border-radius: 10px;
       font-weight: bold;
-      color: rgb(0, 0, 0);
-      background-color: #f49d1a;
+      color: rgb(255, 255, 255);
+      background-color: #116530;
       //background-image: linear-gradient(to bottom, #f17f65, #d55d43);
       &:hover {
         font-size: smaller;
-        background-color: rgb(241, 166, 54);
+        background-color: #267c45;
       }
     }
   }
@@ -63,7 +63,7 @@
         border-radius: 0px;
       }
       button {
-        border-radius: 25px;
+        border-radius: 10px;
       }
     }
   }

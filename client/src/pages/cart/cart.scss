@@ -71,6 +71,7 @@
         border-radius: 10px;
         background-color: rgb(239, 239, 239);
         width: 97.5%;
+        border: none;
 
         &:hover {
           font-size: smaller;
@@ -97,7 +98,7 @@
         background-color: #116530;
         &:hover {
           font-size: smaller;
-          background-color: rgb(241, 166, 54);
+          background-color: #267c45;
         }
       }
     }

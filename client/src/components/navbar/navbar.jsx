@@ -4,6 +4,7 @@ import CartIcon from "../../assets/grocery-store.png";
 import Light from "../../assets/moon.png";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./navbar.scss";
 
 export const NavBar = () => {
@@ -34,7 +35,7 @@ export const NavBar = () => {
     }
   }, [mode]);
 
-  const handleMode = () => {
+  const handleMode = (e) => {
     const newMode = mode === "light" ? "dark" : "light";
     setMode(newMode);
     localStorage.setItem("mode", newMode);
@@ -50,9 +51,10 @@ export const NavBar = () => {
     }
     if (card) {
       if (mode === "dark") {
-        card.classList.add("card-dark-mode");
-      } else {
-        card.classList.remove("card-dark-mode");
+        card.classList.add("dark-mode");
+      }
+      if (mode === "light") {
+        card.classList.remove("dark-mode");
       }
     }
   }, [mode]);
@@ -83,9 +85,9 @@ export const NavBar = () => {
         <div className="right">
           <div className="cart-flex">
             <span>{itemCount}</span>
-            <a className="cart-holder" href="/cart">
+            <Link className="cart-holder" to="/cart">
               <img className="cart-icon" src={CartIcon} alt="cart-image1" />
-            </a>
+            </Link>
           </div>
           <img
             className="mode"
@@ -94,9 +96,9 @@ export const NavBar = () => {
             onClick={handleMode}
           ></img>
           {user ? (
-            <a href="/profile" className="userInfo">
+            <Link to="/profile" className="userInfo">
               Profile
-            </a>
+            </Link>
           ) : (
             <a className="userInfo" href="/login">
               Sign In

@@ -5,6 +5,9 @@ import "./subNav.scss";
 export const SubNav = () => {
   return (
     <div className="subNav">
+      <Link activeClassName="active" spy={true} smooth={true} to="pizza">
+        <span>Pizza</span>
+      </Link>
       <Link activeClassName="active" spy={true} smooth={true} to="burgers">
         <span>Burgers</span>
       </Link>

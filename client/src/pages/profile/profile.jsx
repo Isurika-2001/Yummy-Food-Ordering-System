@@ -9,6 +9,7 @@ export const Profile = () => {
   // const [imgSrc, setImgSrc] = useState(null);
   // const inputRef = useRef(null);
   // const [imageData, setImageData] = useState(null);
+  const storedItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
 
   const [inputs, setInputs] = useState({
     name: user.name,
@@ -25,6 +26,8 @@ export const Profile = () => {
   const logout = () => {
     localStorage.removeItem("user");
     window.location.href = "/";
+    sessionStorage.removeItem("cartItems", JSON.stringify(storedItems));
+    // window.location.reload();
   };
 
   // const handleCloseCamera = () => {
