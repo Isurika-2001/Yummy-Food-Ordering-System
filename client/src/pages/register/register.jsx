@@ -28,7 +28,7 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://192.168.229.66:8000/register", inputs);
+      await axios.post(`${window.location.protocol}//${window.location.hostname}:8000/register`, inputs);
       const user = {
         name: inputs.name,
         email: inputs.email,

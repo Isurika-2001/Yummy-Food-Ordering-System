@@ -8,6 +8,7 @@ import { NavBar } from "./components/navbar/navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Profile } from "./pages/profile/profile"
 import { Cart } from "./pages/cart/cart";
+import { Location } from "./pages/location/location";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/location" element={<Location />} />
           </Routes>
         </div>
       </Router>

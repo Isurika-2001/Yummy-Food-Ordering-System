@@ -10,20 +10,20 @@ const BeverageList = [
     },
     {
       id: 10,
-      name: "Crispy Chicken Burger",
+      name: "Strawberry Smoothie",
       image:
-        "https://www.kitchensanctuary.com/wp-content/uploads/2017/08/Crispy-Chicken-Burger-with-Honey-Mustard-Coleslaw-recipe-square-FS.jpg",
-      description: "Crispy Chicken Burger with Honey Mustard Coleslaw",
-      price: 680.00,
+        "https://image.freepik.com/free-photo/strawberry-smoothies-plastic-cup-refreshment-healthy-drink-diet-drink_6351-1149.jpg",
+      description: "Strawberry smoothies in plastic cup. Refreshment healthy drink. Diet drink.",
+      price: 580.00,
     },
     {
       id: 11,
-      name: "BBQ Chicken Burger",
+      name: "Green Smoothie",
       image:
-        "https://th.bing.com/th/id/OIP.bdBmzEVTtccyih3UrUTPsQHaHU?pid=ImgDet&rs=1",
+        "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/a-green-smoothie-made-with-spinach-lambs-lettuce-apple-banana-and-apple-mint-in-a-plastic-cup-brantley-anita.jpg",
       description:
-        " Whiskey River BBQ Chicken Burger. These BBQ Chicken Burgers are going to be your new favorite way to enjoy barbecue chicken.",
-      price: 560.00,
+        "A green smoothie made with Spinach, Lamb's Lettuce, Apple, Banana And Apple Mint in a plastic cup.",
+      price: 580.00,
     },
   ];
   export default BeverageList;

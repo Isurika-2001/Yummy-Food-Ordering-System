@@ -1,5 +1,6 @@
 import Location from "../../assets/location.png";
 import "./cart.scss";
+import { Link } from "react-router-dom";
 
 export const Cart = () => {
   const storedItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
@@ -75,9 +76,11 @@ export const Cart = () => {
               ></input>
             </div>
           </form>
-          <button className="locateMe">
-            <img src={Location} alt="location"></img> LOCATE ME
-          </button>
+          <Link to="/location">
+            <button className="locateMe">
+              <img src={Location} alt="location"></img> LOCATE ME
+            </button>
+          </Link>
           <button className="order">Place Order</button>
         </div>
       </div>

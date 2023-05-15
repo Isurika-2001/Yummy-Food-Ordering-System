@@ -55,7 +55,7 @@ export const Profile = () => {
       // const updatedInputs = { ...inputs, profile_image };
       const updatedInputs = { ...inputs };
       await axios.post(
-        "http://192.168.229.66:8000/updateProfile",
+        `${window.location.protocol}//${window.location.hostname}:8000/updateProfile`,
         updatedInputs
       );
       const user = updatedInputs;
@@ -63,6 +63,7 @@ export const Profile = () => {
       setInputs(updatedInputs);
       alert("User details updated successfully!");
     } catch (err) {
+      alert("No internet connection found. Please check your connection and try again.");
       console.error(err);
     }
   };
@@ -72,7 +73,7 @@ export const Profile = () => {
       <div className="images">
         <img
           src="https://wallpapercave.com/wp/wp4289147.jpg"
-          alt=""
+          alt="cover image"
           className="cover"
         />
         <button className="logout" onClick={logout}>
@@ -81,7 +82,7 @@ export const Profile = () => {
         <div>
           <img
             src="https://i.stack.imgur.com/l60Hf.png"
-            alt=""
+            alt="profile image"
             className="profilePic"
           />
           {/* {imgSrc ? (

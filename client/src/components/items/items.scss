@@ -6,7 +6,12 @@
 
   h2 {
     width: 100%;
-    margin: 0px;
+    margin-top: 0;
+    margin-bottom: -20px;
+    text-underline-offset: 10px;
+    // text-align: center;
+    font-family: "Caveat";
+    text-decoration: underline;
   }
 
   .card {

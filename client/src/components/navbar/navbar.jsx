@@ -9,7 +9,10 @@ import "./navbar.scss";
 
 export const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState(() => {
+    // Retrieve the stored mode from localStorage or use the default value "light"
+    return localStorage.getItem("mode") || "light";
+  });
   const user = JSON.parse(localStorage.getItem("user"));
   const storedItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
   const itemCount = storedItems.length;

@@ -9,7 +9,7 @@
   top: 50px;
   z-index: 1000;
   padding: 10px;
-  padding-left: 15px;
+  padding-left: 10px;
   padding-bottom: 7px;
   position: sticky;
   top: 90px; 
@@ -22,8 +22,8 @@
     cursor: pointer;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    width: 100px;
     transition: all 0.3s ease-in-out;
+    margin: 5px;
 
     &:hover {
       color: #b31c69;

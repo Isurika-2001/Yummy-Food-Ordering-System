@@ -1,4 +1,5 @@
 import "./items.scss";
+import PizzaList from "../../itemList/pizza";
 import BurgerList from "../../itemList/burgers";
 import AppetizerList from "../../itemList/appetizes";
 import BeverageList from "../../itemList/beverages";
@@ -46,6 +47,45 @@ export const Items = () => {
 
   return (
     <div className="itemsMain">
+      <h2 id="pizza">Pizza</h2>
+      {PizzaList.map((item, index) => (
+        <div key={item.id} className="card">
+          <div className="header">
+            <img src={item.image} alt="item image1"></img>
+          </div>
+          <div className="itemBody">
+            <span className="title">{item.name}</span>
+            <p>{item.description}</p>
+            <div className="price">
+              <span className="lable">LKR </span>
+              <span>{item.price}.00</span>
+            </div>
+            <div className="footer">
+              <button
+                className="calc"
+                onClick={() => decrementCount(getItemIndex(item, index))}
+              >
+                -
+              </button>
+              <span>{getItemCount(getItemIndex(item, index))}</span>
+              <button
+                className="calc"
+                onClick={() => incrementCount(getItemIndex(item, index))}
+              >
+                +
+              </button>
+              <button
+                className="cart"
+                onClick={() =>
+                  addToCart(item, getItemCount(getItemIndex(item, index)))
+                }
+              >
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
       <h2 id="burgers">Burgers</h2>
       {BurgerList.map((item, index) => (
         <div key={item.id} className="card">
