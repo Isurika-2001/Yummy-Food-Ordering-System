@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-
+const { createTables } = require("./table");
 const sqlite = require("sqlite3").verbose();
 const db = new sqlite.Database("./user.db", sqlite.OPEN_READWRITE, (err) => {
   if (err) {
@@ -12,10 +12,13 @@ const db = new sqlite.Database("./user.db", sqlite.OPEN_READWRITE, (err) => {
   }
 });
 
+// Create tables
+createTables(db);
+
 app.use(bodyParser.json());
 
 app.use(
-  cors({ origin: ["http://localhost:3000", "http://192.168.43.66:3000"] })
+  cors({ origin: ["http://localhost:3000", "http://192.168.83.66:3000"] })
 );
 
 app.post("/register", (req, res) => {
@@ -122,6 +125,57 @@ app.post("/updateProfile", (req, res) => {
       return res.status(200).json({ message: "User updated." });
     }
   );
+});
+
+app.post("/order", (req, res) => {
+  const orderData = req.body;
+  const sql = `INSERT INTO orders (orderid, date, contact, address, status)
+  VALUES (?, ?, ?, ?, ?)`;
+
+  // Insert orderData into the 'orders' table
+  db.run(
+    sql,
+    [
+      orderData.orderId,
+      orderData.date,
+      orderData.contact,
+      orderData.address,
+      orderData.status,
+    ],
+    (err) => {
+      if (err) {
+        console.error(err);
+        res.status(500).json({ error: "Failed to add order to the database" });
+      } else {
+        res
+          .status(200)
+          .json({ message: "Order added successfully!", orderId: this.lastID });
+      }
+    }
+  );
+});
+
+app.post("/item", (req, res) => {
+  const itemData = req.body;
+  const sql = `INSERT INTO order_items (orderid, itemid, name, count, price)
+  VALUES (?, ?, ?, ?, ?)`;
+
+  itemData.forEach((item) => {
+    db.run(
+      sql,
+      [item.orderId, item.itemId, item.name, item.count, item.price],
+      (err) => {
+        if (err) {
+          console.error(err);
+          res.status(500).json({ error: "Failed to add item to the database" });
+        } else {
+          console.log("Item added successfully!");
+        }
+      }
+    );
+  });
+
+  res.status(200).json({ message: "Items added successfully!" });
 });
 
 app.listen(8000, () => console.log("Server started"));

@@ -1,9 +1,22 @@
+import { useState } from "react";
 import Location from "../../assets/location.png";
 import "./cart.scss";
-import { Link } from "react-router-dom";
+import axios from "axios";
 
 export const Cart = () => {
+  // get contact and address from the session storage
+  const storedCustomer = JSON.parse(sessionStorage.getItem("customer"));
   const storedItems = JSON.parse(sessionStorage.getItem("cartItems")) || [];
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [inputs, setInputs] = useState({
+    contact: storedCustomer
+      ? storedCustomer.contact
+      : user
+      ? user.contact_no
+      : "",
+    address: storedCustomer ? storedCustomer.address : "",
+  });
+
   let fullTotal = 0;
 
   storedItems.forEach((item) => {
@@ -13,6 +26,104 @@ export const Cart = () => {
   const removeCart = () => {
     sessionStorage.removeItem("cartItems", JSON.stringify(storedItems));
     window.location.reload();
+  };
+
+  const handleData = () => {
+    if (inputs.contact === "") {
+      alert("Please enter your contact number");
+    } else if (inputs.contact.length !== 10) {
+      alert("Please enter a valid contact number");
+    } else {
+      const customer = { ...inputs };
+      sessionStorage.setItem("customer", JSON.stringify(customer));
+      window.location.href = "/location";
+    }
+  };
+
+  const placeOrder = (event) => {
+    event.preventDefault();
+    if (storedItems.length === 0) {
+      alert("Your cart is empty");
+    } else if (inputs.contact === "") {
+      alert("Please enter your contact number");
+    }else if (inputs.contact.length !== 10) {
+      alert("Please enter a valid contact number");
+    } else if (inputs.address === "") {
+      alert("Please select your location");
+    } else {
+      const orderId = generateOrderId();
+      const orderDate = new Date();
+
+      const order = {
+        orderId: orderId,
+        customer: storedCustomer,
+        items: storedItems,
+        total: fullTotal,
+        date: orderDate.toISOString(),
+      };
+
+      const orderData = {
+        orderId: orderId,
+        contact: storedCustomer.contact,
+        address: storedCustomer.address,
+        status: "pending",
+        date: orderDate.toISOString(),
+      };
+
+      const itemData = storedItems.map((item) => ({
+        orderId: orderId,
+        itemId: item.id,
+        name: item.name,
+        count: item.count,
+        price: item.price,
+      }));
+
+      // Add order to the database
+      axios
+        .post(
+          `${window.location.protocol}//${window.location.hostname}:8000/order`,
+          orderData
+        )
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+
+      // Add items to the database
+      axios
+        .post(
+          `${window.location.protocol}//${window.location.hostname}:8000/item`,
+          itemData
+        )
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err));
+
+      // Store the order in local storage
+      const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+      existingOrders.push(order);
+      localStorage.setItem("orders", JSON.stringify(existingOrders));
+      sessionStorage.removeItem("cartItems", JSON.stringify(storedItems));
+
+      alert("Order placed successfully");
+
+      // Redirect to my orders page
+      window.location.href = "/myorders";
+    }
+  };
+
+  const generateOrderId = () => {
+    // Generate a random alphanumeric order ID
+    const chars = "0123456789";
+    let orderId = "";
+    for (let i = 0; i < 8; i++) {
+      orderId += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return orderId;
+  };
+
+  const handleInputChange = (event) => {
+    setInputs((prevInputs) => ({
+      ...prevInputs,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   return (
@@ -64,6 +175,8 @@ export const Cart = () => {
               <input
                 type="text"
                 name="contact"
+                value={inputs.contact}
+                onChange={handleInputChange}
                 placeholder="enter your contact number here"
               ></input>
             </div>
@@ -72,16 +185,19 @@ export const Cart = () => {
               <input
                 type="text"
                 name="address"
-                placeholder="enter your address or share your current location"
+                value={inputs.address}
+                readOnly
+                onChange={handleInputChange}
+                placeholder="click locate me to get your location"
               ></input>
             </div>
           </form>
-          <Link to="/location">
-            <button className="locateMe">
-              <img src={Location} alt="location"></img> LOCATE ME
-            </button>
-          </Link>
-          <button className="order">Place Order</button>
+          <button onClick={handleData} className="locateMe">
+            <img src={Location} alt="location"></img> LOCATE ME
+          </button>
+          <button onClick={placeOrder} className="order">
+            Place Order
+          </button>
         </div>
       </div>
     </div>

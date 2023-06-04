@@ -28,31 +28,18 @@ export const Profile = () => {
     localStorage.removeItem("user");
     window.location.href = "/";
     sessionStorage.removeItem("cartItems", JSON.stringify(storedItems));
+    sessionStorage.removeItem("customer");
+    localStorage.removeItem("orders");
     // window.location.reload();
   };
 
-  // const handleCloseCamera = () => {
-  //   setShowCamera(false);
-  // };
-
-  // const handleTakePhoto = () => {
-  //   const imgSrc = inputRef.current.getScreenshot();
-  //   setImgSrc(imgSrc);
-  //   setShowCamera(false);
-  //   const imageData = imgSrc.replace("data:image/jpeg;base64,", "");
-  //   setImageData(imageData);
-  // };
-
-  // const handleProfilePicClick = () => {
-  //   setImgSrc(null);
-  //   setShowCamera(true);
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (inputs.contact_no.length !== 10) {
+      alert("Please enter a valid contact number");
+      return;
+    }
     try {
-      // const profile_image = imageData || inputs.profile_image;
-      // const updatedInputs = { ...inputs, profile_image };
       const updatedInputs = { ...inputs };
       await axios.post(
         `${window.location.protocol}//${window.location.hostname}:8000/updateProfile`,
@@ -63,7 +50,9 @@ export const Profile = () => {
       setInputs(updatedInputs);
       alert("User details updated successfully!");
     } catch (err) {
-      alert("No internet connection found. Please check your connection and try again.");
+      alert(
+        "No internet connection found. Please check your connection and try again."
+      );
       console.error(err);
     }
   };
@@ -85,33 +74,7 @@ export const Profile = () => {
             alt="profile image"
             className="profilePic"
           />
-          {/* {imgSrc ? (
-            <img
-              onClick={handleProfilePicClick}
-              src={imgSrc}
-              alt=""
-              className="profilePic"
-            />
-          ) : (
-            <img
-              onClick={handleProfilePicClick}
-              src={inputs.profile_image}
-              alt=""
-              className="profilePic"
-            />
-          )} */}
         </div>
-        {/* {showCamera && (
-          <div className="cameraContainer">
-            <WebCam audio={false} ref={inputRef} />
-            <button className="take" onClick={handleTakePhoto}>
-              Take Photo
-            </button>
-            <button className="close" onClick={handleCloseCamera}>
-              Close Camera
-            </button>
-          </div>
-        )} */}
       </div>
 
       <form className="profileForm" onSubmit={handleSubmit}>

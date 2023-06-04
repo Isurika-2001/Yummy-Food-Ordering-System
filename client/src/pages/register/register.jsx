@@ -28,7 +28,10 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${window.location.protocol}//${window.location.hostname}:8000/register`, inputs);
+      await axios.post(
+        `${window.location.protocol}//${window.location.hostname}:8000/register`,
+        inputs
+      );
       const user = {
         name: inputs.name,
         email: inputs.email,
@@ -43,7 +46,6 @@ export const Register = () => {
       setErr(err.response.data.error);
     }
   };
-  
 
   return (
     <div className="AuthMain">
@@ -63,7 +65,7 @@ export const Register = () => {
         </span>
       )}
       <form>
-      <input
+        <input
           type="name"
           placeholder="name"
           name="name"

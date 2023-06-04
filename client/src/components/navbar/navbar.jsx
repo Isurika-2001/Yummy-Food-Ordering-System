@@ -72,16 +72,16 @@ export const NavBar = () => {
           <h2>Yummy</h2>
         </div>
         <div className="middle">
-          <NavLink activeClassName="active" to="/">
+          <NavLink activeclassname="active" to="/">
             <span>Home</span>
           </NavLink>
-          <NavLink activeClassName="active" to="/menu">
+          <NavLink activeclassname="active" to="/menu">
             <span>Menu</span>
           </NavLink>
-          <NavLink activeClassName="active" to="/myorders">
+          <NavLink activeclassname="active" to="/myorders">
             <span>My Orders</span>
           </NavLink>
-          <NavLink activeClassName="active" to="/contactus">
+          <NavLink activeclassname="active" to="/contactus">
             <span>Contact Us</span>
           </NavLink>
         </div>
@@ -111,28 +111,28 @@ export const NavBar = () => {
         {showMenu && (
           <div className={`mobile-menu ${showMenu ? "active" : ""}`}>
             <NavLink
-              activeClassName="active"
+              activeclassname="active"
               to="/"
               onClick={() => setShowMenu(false)}
             >
               <span>Home</span>
             </NavLink>
             <NavLink
-              activeClassName="active"
+              activeclassname="active"
               to="/menu"
               onClick={() => setShowMenu(false)}
             >
               <span>Menu</span>
             </NavLink>
             <NavLink
-              activeClassName="active"
+              activeclassname="active"
               to="/myorders"
               onClick={() => setShowMenu(false)}
             >
               <span>My Orders</span>
             </NavLink>
             <NavLink
-              activeClassName="active"
+              activeclassname="active"
               to="/contactus"
               onClick={() => setShowMenu(false)}
             >

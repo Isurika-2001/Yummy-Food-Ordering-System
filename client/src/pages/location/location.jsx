@@ -4,6 +4,10 @@ import "./location.scss";
 export const Location = () => {
   const [currentLocation, setCurrentLocation] = useState({});
   const [error, setError] = useState(null);
+  const [inputs, setInputs] = useState({
+    no: "",
+    street: "",
+  });
 
   useEffect(() => {
     geoLocation();
@@ -15,15 +19,45 @@ export const Location = () => {
         const { latitude, longitude } = position.coords;
         setCurrentLocation({ latitude, longitude });
       },
-      (error) => {
-        setError(error.message);
-        console.log(error);
-        alert("Internet connection is required!")
+      (err) => {
+        console.log(err);
+        setError(err.message || "An error occurred.");
+        alert(
+          "Internet connection is required! " +
+            (err.message || "An error occurred.")
+        );
       },
-      { timeout: 10000 }
+      { timeout: 5000 }
     );
   };
+
+  const handleLocation = (e) => {
+    e.preventDefault();
+    const location = currentLocation.latitude + "," + currentLocation.longitude;
+    const address = `${inputs.no} ${inputs.street} ${location}`;
   
+    // Retrieve the existing customer data from session storage
+    const existingCustomerData = JSON.parse(sessionStorage.getItem("customer"));
+  
+    // Update the address in the existing customer data
+    existingCustomerData.address = address;
+  
+    // Store the updated customer data in session storage
+    sessionStorage.setItem("customer", JSON.stringify(existingCustomerData));
+  
+    // Redirect to "/cart" page
+    window.location.href = "/cart";
+  
+    console.log(address);
+  };
+  
+
+  const handleInputChange = (event) => {
+    setInputs((prevInputs) => ({
+      ...prevInputs,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
   return (
     <div className="Main">
@@ -33,13 +67,28 @@ export const Location = () => {
           scrolling="no"
         ></iframe>
       )}
-      <form className="locationForm">
+      <form className="locationForm" onSubmit={handleLocation}>
         <label htmlFor="address">Home Address</label>
         <div>
-          <input className="no" type="text" name="no" placeholder="No" />
-          <input type="text" name="address" placeholder="Address" />
+          <input
+            required
+            className="no"
+            type="text"
+            name="no"
+            placeholder="House no"
+            value={inputs.no}
+            onChange={handleInputChange}
+          />
+          <input
+            required
+            type="text"
+            name="street"
+            placeholder="Street (ex: 1st cross street)"
+            value={inputs.street}
+            onChange={handleInputChange}
+          />
         </div>
-        <button>Submit</button>
+        <button type="submit">Add location</button>
       </form>
     </div>
   );

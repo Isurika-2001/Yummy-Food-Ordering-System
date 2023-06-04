@@ -47,8 +47,8 @@ export const Items = () => {
 
   return (
     <div className="itemsMain">
-      <h2 id="pizza">Pizza</h2>
-      {PizzaList.map((item, index) => (
+      <h2 id="burgers">Burgers</h2>
+      {BurgerList.map((item, index) => (
         <div key={item.id} className="card">
           <div className="header">
             <img src={item.image} alt="item image1"></img>
@@ -85,9 +85,9 @@ export const Items = () => {
             </div>
           </div>
         </div>
-      ))}
-      <h2 id="burgers">Burgers</h2>
-      {BurgerList.map((item, index) => (
+      ))}{" "}
+      <h2 id="pizza">Pizza</h2>
+      {PizzaList.map((item, index) => (
         <div key={item.id} className="card">
           <div className="header">
             <img src={item.image} alt="item image1"></img>

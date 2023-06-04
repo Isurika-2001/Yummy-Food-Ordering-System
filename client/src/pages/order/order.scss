@@ -1,0 +1,95 @@
+.Main {
+  h1{
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-underline-offset: 10px;
+    // text-align: center;
+    font-family: "Caveat";
+    text-decoration: underline;
+  }
+  .card {
+    border: 1px solid;
+    padding: 10px;
+    margin-bottom: 10px;
+    .itemBody {
+      .header {
+        font-size: 14px;
+        display: flex;
+        .lb {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+        .val {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
+      }
+      .customer {
+        font-size: 14px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      hr {
+        width: full;
+      }
+      .orderDetails {
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 20px;
+        padding-top: 0px;
+        .head {
+          font-weight: 500;
+          margin-top: 10px;
+          display: flex;
+          justify-content: space-between;
+          .itemN {
+            align-self: flex-start;
+            text-align: left;
+            width: 180px;
+          }
+        }
+        .itemDetails {
+          margin-top: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          .itemN {
+            align-self: flex-start;
+            text-align: left;
+            width: 170px;
+          }
+          span {
+            text-align: right;
+          }
+        }
+        .footer {
+          font-weight: 500;
+          margin-top: 30px;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .Main {
+    .card {
+      .itemBody {
+        .orderDetails {
+          margin-left: 0%;
+          margin-right: 0%;
+        }
+      }
+    }
+  }
+}

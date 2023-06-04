@@ -31,6 +31,11 @@ export const Login = () => {
         `${window.location.protocol}//${window.location.hostname}:8000/login`,
         inputs
       );
+
+      localStorage.removeItem("order");
+      sessionStorage.removeItem("customer");
+      sessionStorage.removeItem("cartItems");
+
       const user = response.data.user;
       localStorage.setItem("user", JSON.stringify(user));
       window.location.href = "/";
@@ -38,7 +43,6 @@ export const Login = () => {
       setErr(err.response.data.message);
     }
   };
-  
 
   return (
     <div className="AuthMain">
