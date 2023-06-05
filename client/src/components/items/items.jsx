@@ -47,162 +47,173 @@ export const Items = () => {
 
   return (
     <div className="itemsMain">
-      <h2 id="burgers">Burgers</h2>
-      {BurgerList.map((item, index) => (
-        <div key={item.id} className="card">
-          <div className="header">
-            <img src={item.image} alt="item image1"></img>
-          </div>
-          <div className="itemBody">
-            <span className="title">{item.name}</span>
-            <p>{item.description}</p>
-            <div className="price">
-              <span className="lable">LKR </span>
-              <span>{item.price}.00</span>
+      <h2>Burgers</h2>
+      <div id="burgers">
+        {BurgerList.map((item, index) => (
+          <div key={item.id} className="card">
+            <div className="header">
+              <img src={item.image} alt="item image1"></img>
             </div>
-            <div className="footer">
-              <button
-                className="calc"
-                onClick={() => decrementCount(getItemIndex(item, index))}
-              >
-                -
-              </button>
-              <span>{getItemCount(getItemIndex(item, index))}</span>
-              <button
-                className="calc"
-                onClick={() => incrementCount(getItemIndex(item, index))}
-              >
-                +
-              </button>
-              <button
-                className="cart"
-                onClick={() =>
-                  addToCart(item, getItemCount(getItemIndex(item, index)))
-                }
-              >
-                Add to cart
-              </button>
-            </div>
-          </div>
-        </div>
-      ))}{" "}
-      <h2 id="pizza">Pizza</h2>
-      {PizzaList.map((item, index) => (
-        <div key={item.id} className="card">
-          <div className="header">
-            <img src={item.image} alt="item image1"></img>
-          </div>
-          <div className="itemBody">
-            <span className="title">{item.name}</span>
-            <p>{item.description}</p>
-            <div className="price">
-              <span className="lable">LKR </span>
-              <span>{item.price}.00</span>
-            </div>
-            <div className="footer">
-              <button
-                className="calc"
-                onClick={() => decrementCount(getItemIndex(item, index))}
-              >
-                -
-              </button>
-              <span>{getItemCount(getItemIndex(item, index))}</span>
-              <button
-                className="calc"
-                onClick={() => incrementCount(getItemIndex(item, index))}
-              >
-                +
-              </button>
-              <button
-                className="cart"
-                onClick={() =>
-                  addToCart(item, getItemCount(getItemIndex(item, index)))
-                }
-              >
-                Add to cart
-              </button>
+            <div className="itemBody">
+              <span className="title">{item.name}</span>
+              <p>{item.description}</p>
+              <div className="price">
+                <span className="lable">LKR </span>
+                <span>{item.price}.00</span>
+              </div>
+              <div className="footer">
+                <button
+                  className="calc"
+                  onClick={() => decrementCount(getItemIndex(item, index))}
+                >
+                  -
+                </button>
+                <span>{getItemCount(getItemIndex(item, index))}</span>
+                <button
+                  className="calc"
+                  onClick={() => incrementCount(getItemIndex(item, index))}
+                >
+                  +
+                </button>
+                <button
+                  className="cart"
+                  onClick={() =>
+                    addToCart(item, getItemCount(getItemIndex(item, index)))
+                  }
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-      <h2 id="appetizes">Appetizers</h2>
-      {AppetizerList.map((item, index) => (
-        <div key={item.id} className="card">
-          <div className="header">
-            <img src={item.image} alt="item image2"></img>
-          </div>
-          <div className="itemBody">
-            <span className="title">{item.name}</span>
-            <p>{item.description}</p>
-            <div className="price">
-              <span className="lable">LKR </span>
-              <span>{item.price}</span>
+        ))}
+      </div>
+
+      <h2>Pizza</h2>
+      <div id="pizza">
+        {PizzaList.map((item, index) => (
+          <div key={item.id} className="card">
+            <div className="header">
+              <img src={item.image} alt="item image1"></img>
             </div>
-            <div className="footer">
-              <button
-                className="calc"
-                onClick={() => decrementCount(getItemIndex(item, index))}
-              >
-                -
-              </button>
-              <span>{getItemCount(getItemIndex(item, index))}</span>
-              <button
-                className="calc"
-                onClick={() => incrementCount(getItemIndex(item, index))}
-              >
-                +
-              </button>
-              <button
-                className="cart"
-                onClick={() =>
-                  addToCart(item, getItemCount(getItemIndex(item, index)))
-                }
-              >
-                Add to cart
-              </button>
-            </div>
-          </div>
-        </div>
-      ))}
-      <h2 id="beverages">Beverages</h2>
-      {BeverageList.map((item, index) => (
-        <div key={item.id} className="card">
-          <div className="header">
-            <img src={item.image} alt="item image3"></img>
-          </div>
-          <div className="itemBody">
-            <span className="title">{item.name}</span>
-            <p>{item.description}</p>
-            <div className="price">
-              <span className="lable">LKR </span>
-              <span>{item.price}</span>
-            </div>
-            <div className="footer">
-              <button
-                className="calc"
-                onClick={() => decrementCount(getItemIndex(item, index))}
-              >
-                -
-              </button>
-              <span>{getItemCount(getItemIndex(item, index))}</span>
-              <button
-                className="calc"
-                onClick={() => incrementCount(getItemIndex(item, index))}
-              >
-                +
-              </button>
-              <button
-                className="cart"
-                onClick={() =>
-                  addToCart(item, getItemCount(getItemIndex(item, index)))
-                }
-              >
-                Add to cart
-              </button>
+            <div className="itemBody">
+              <span className="title">{item.name}</span>
+              <p>{item.description}</p>
+              <div className="price">
+                <span className="lable">LKR </span>
+                <span>{item.price}.00</span>
+              </div>
+              <div className="footer">
+                <button
+                  className="calc"
+                  onClick={() => decrementCount(getItemIndex(item, index))}
+                >
+                  -
+                </button>
+                <span>{getItemCount(getItemIndex(item, index))}</span>
+                <button
+                  className="calc"
+                  onClick={() => incrementCount(getItemIndex(item, index))}
+                >
+                  +
+                </button>
+                <button
+                  className="cart"
+                  onClick={() =>
+                    addToCart(item, getItemCount(getItemIndex(item, index)))
+                  }
+                >
+                  Add to cart
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      <h2>Appetizers</h2>
+      <div id="appetizes">
+        {AppetizerList.map((item, index) => (
+          <div key={item.id} className="card">
+            <div className="header">
+              <img src={item.image} alt="item image2"></img>
+            </div>
+            <div className="itemBody">
+              <span className="title">{item.name}</span>
+              <p>{item.description}</p>
+              <div className="price">
+                <span className="lable">LKR </span>
+                <span>{item.price}</span>
+              </div>
+              <div className="footer">
+                <button
+                  className="calc"
+                  onClick={() => decrementCount(getItemIndex(item, index))}
+                >
+                  -
+                </button>
+                <span>{getItemCount(getItemIndex(item, index))}</span>
+                <button
+                  className="calc"
+                  onClick={() => incrementCount(getItemIndex(item, index))}
+                >
+                  +
+                </button>
+                <button
+                  className="cart"
+                  onClick={() =>
+                    addToCart(item, getItemCount(getItemIndex(item, index)))
+                  }
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h2>Beverages</h2>
+      <div id="beverages">
+        {BeverageList.map((item, index) => (
+          <div key={item.id} className="card">
+            <div className="header">
+              <img src={item.image} alt="item image3"></img>
+            </div>
+            <div className="itemBody">
+              <span className="title">{item.name}</span>
+              <p>{item.description}</p>
+              <div className="price">
+                <span className="lable">LKR </span>
+                <span>{item.price}</span>
+              </div>
+              <div className="footer">
+                <button
+                  className="calc"
+                  onClick={() => decrementCount(getItemIndex(item, index))}
+                >
+                  -
+                </button>
+                <span>{getItemCount(getItemIndex(item, index))}</span>
+                <button
+                  className="calc"
+                  onClick={() => incrementCount(getItemIndex(item, index))}
+                >
+                  +
+                </button>
+                <button
+                  className="cart"
+                  onClick={() =>
+                    addToCart(item, getItemCount(getItemIndex(item, index)))
+                  }
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

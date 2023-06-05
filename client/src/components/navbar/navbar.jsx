@@ -19,7 +19,7 @@ export const NavBar = () => {
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
-  };
+  };  
 
   useEffect(() => {
     const body = document.querySelector("body");

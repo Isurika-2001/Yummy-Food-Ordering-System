@@ -5,7 +5,7 @@ export const Order = () => {
 
   return (
     <div className="Main">
-      <h1>Orders</h1>
+      <h1>My Orders</h1>
       {storedOrders.map((order) => (
         <div key={order.orderId} className="card">
           <div className="itemBody">

@@ -26,15 +26,16 @@
       left: 10%;
       width: 40%;
       border-radius: 10px;
-      opacity: 50%;
       background-color: white;
       color: #000000;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      opacity: 50%;
+      font-weight: 500;
+      font-size: 20px;
+      box-shadow: 0 6px 10px rgba(255, 255, 255, 0.3);
       display: flex;
       flex-direction: column;
       align-items: center;
       z-index: 0;
+      font-family: "Caveat";
 
       p {
         text-align: center;
@@ -73,7 +74,6 @@
       background-color: #000000;
       color: white;
       box-shadow: 0 4px 6px rgba(255, 255, 255, 0.3);
-      opacity: 50%;
     }
   }
 

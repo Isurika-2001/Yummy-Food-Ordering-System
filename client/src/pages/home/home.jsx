@@ -42,7 +42,7 @@ export const Home = () => {
           ))}
         </div>
         <button>
-          <NavLink activeClassName="active" to="/menu">
+          <NavLink activeclassname="active" to="/menu">
             <span>Order Now</span>
           </NavLink>
         </button>
